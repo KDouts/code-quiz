@@ -1,0 +1,27 @@
+.timer {
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: right;
+  }
+  
+  .welcome {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #score {
+    margin-bottom: 20px;
+    font-size: 15px;
+    width: 100%;
+    height: 25px;
+    float: left;
+  }
+  
+  #quiz {
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+  }

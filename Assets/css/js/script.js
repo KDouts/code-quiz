@@ -44,25 +44,24 @@ function startGame() {
     console.log(timeLeft);
   }, 1000);
 
+  var questions = myQuestions[i].question;
+  var chA = myQuestions[i].answers.a;
+  var chB = myQuestions[i].answers.b;
+  var chC = myQuestions[i].answers.c;
+  var chD = myQuestions[i].answers.d;
+    
+  quiz.innerHTML = "<h3>" +questions+ "</h3>"
+    
+  quiz.innerHTML += "<button> A: " +chA+ "</button>"
+  quiz.innerHTML += "<button> B: " +chB+ "</button>"
+  quiz.innerHTML += "<button> C: " +chC+ "</button>"
+  quiz.innerHTML += "<button> D: " +chD+ "</button>"
+
   for(i=0; i < myQuestions.length; i++){
-    var answer = myQuestions[i];
-    if(answer == myQuestions[i].correctAnswer) {
+    if(myQuestions[i] === myQuestions[i].correctAnswer) {
       score++;
+      i++;
     }
   }
-
-  var questions = myQuestions[0].question;
-  var chA = myQuestions[0].answers.a;
-  var chB = myQuestions[0].answers.b;
-  var chC = myQuestions[0].answers.c;
-  var chD = myQuestions[0].answers.d;
-
-  quiz.innerHTML = "<h3>" +questions+ "</h3>"
-
-  quiz.innerHTML += "<button>" +chA+ "</button>"
-  quiz.innerHTML += "<button>" +chB+ "</button>"
-  quiz.innerHTML += "<button>" +chC+ "</button>"
-  quiz.innerHTML += "<button>" +chD+ "</button>"
-
   console.log(score);
 }

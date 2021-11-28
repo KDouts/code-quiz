@@ -1,7 +1,7 @@
 body {
   width: 700px;
   margin: auto;
-  border: 2px solid red;
+  border: 2px solid aqua;
   border-radius: 20px;
 }
 
@@ -36,5 +36,5 @@ body {
 }
   
 #quiz {
-
+  text-align: center;
 }

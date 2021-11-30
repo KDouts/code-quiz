@@ -21,7 +21,7 @@ var myQuestions = [{
       b: "Donald", 
       c: "Terra", 
       d: "Ventus"},
-      correctAnswer: 1
+      correctAnswer: 0
   },{
     question: "Question #3: Who is the most powerful character?",
     answers: {
@@ -63,86 +63,87 @@ var myQuestions = [{
       d: "Ventus"},
       correctAnswer: 1
   },{
-    question: "Question #8: Who is the most powerful character?",
+    question: "Question #8: Who was not consumed by darkness?",
     answers: {
       a: "Aqua", 
-      b: "Donald", 
+      b: "Sora", 
       c: "Terra", 
       d: "Ventus"},
+    correctAnswer: 3
+  },{
+    question: "Question #9: What heartless was Terra revealed to be?",
+    answers: {
+      a: "Ansem", 
+      b: "Xemnas", 
+      c: "The Gaurdian", 
+      d: "Darkside"},
     correctAnswer: 1
   },{
-    question: "Question #9: Who is the most powerful character?",
+    question: "Question #10: What does the keyblade release when defeating an enemy?",
     answers: {
-      a: "Aqua", 
-      b: "Donald", 
-      c: "Terra", 
-      d: "Ventus"},
-    correctAnswer: 1
-  },{
-    question: "Question #10: Who is the most powerful character?",
-    answers: {
-      a: "Aqua", 
-      b: "Donald", 
-      c: "Terra", 
-      d: "Ventus"},
-    correctAnswer: 1
-}];
+      a: "Heart", 
+      b: "Soul", 
+      c: "Little bits of Donald that will help him heal you", 
+      d: "Sword"},
+    correctAnswer: 0
+  }];
+  
+  console.log(myQuestions);
+  
+  startBtn.addEventListener("click", startGame);
+  
+  function startGame() {
     
-console.log(myQuestions);
-
-startBtn.addEventListener("click", startGame);
-
-function startGame() {
-  
-  updateUI();
-  getAnswer();
-  startTimer();
-
-}
-function getAnswer() {
-  let btn = document.querySelectorAll(".answerBtn");
-  for (var i = 0; i < btn.length; i++) {
-    btn[i].addEventListener("click", bindClick(i));
-  }
-  
-}
-function bindClick(i) {
-  return function () {
-    console.log("you clicked region number " + i);
-    console.log(myQuestions[currentQuestion].correctAnswer)
-    if(i === myQuestions[currentQuestion].correctAnswer) {
-      score++;
-      console.log("correct!");
-    } else {
-      timeLeft = timeLeft-10;
-    }
-    currentQuestion++;
     updateUI();
     getAnswer();
-  };
-}
-function updateUI() {
-var questions = myQuestions[currentQuestion].question;
-var chA = myQuestions[currentQuestion].answers.a;
-var chB = myQuestions[currentQuestion].answers.b;
-var chC = myQuestions[currentQuestion].answers.c;
-var chD = myQuestions[currentQuestion].answers.d;
-
-quiz.innerHTML = "<h3>" +questions+ "</h3>"
-
-quiz.innerHTML += "<button Class='answerBtn'> A: " +chA+ "</button>"
-quiz.innerHTML += "<button Class='answerBtn'> B: " +chB+ "</button>"
-quiz.innerHTML += "<button Class='answerBtn'> C: " +chC+ "</button>"
-quiz.innerHTML += "<button Class='answerBtn'> D: " +chD+ "</button>"
-}
-
-function startTimer() {
-  var timeInterval = setInterval(function () {
-    timeLeft--;
-    timerEl.textContent = timeLeft + " seconds remaining";
-  if(timeLeft === 0) {
-    clearInterval(timeInterval);
-    alert("Time's Up!");
+    startTimer();
+    
   }
-}, 1000);
-}
+  function getAnswer() {
+    let btn = document.querySelectorAll(".answerBtn");
+    for (var i = 0; i < btn.length; i++) {
+      btn[i].addEventListener("click", bindClick(i));
+    }
+    
+  }
+  function bindClick(i) {
+    return function () {
+      console.log("you clicked region number " + i);
+      console.log(myQuestions[currentQuestion].correctAnswer)
+      if(i === myQuestions[currentQuestion].correctAnswer) {
+        score++;
+        console.log("correct!");
+      } else {
+        timeLeft = timeLeft-10;
+      }
+      console.log(score);
+      currentQuestion++;
+      updateUI();
+      getAnswer();
+    };
+  }
+  function updateUI() {
+    var questions = myQuestions[currentQuestion].question;
+    var chA = myQuestions[currentQuestion].answers.a;
+    var chB = myQuestions[currentQuestion].answers.b;
+    var chC = myQuestions[currentQuestion].answers.c;
+    var chD = myQuestions[currentQuestion].answers.d;
+    
+    quiz.innerHTML = "<h3>" +questions+ "</h3>"
+    
+    quiz.innerHTML += "<button Class='answerBtn'> A: " +chA+ "</button>"
+    quiz.innerHTML += "<button Class='answerBtn'> B: " +chB+ "</button>"
+    quiz.innerHTML += "<button Class='answerBtn'> C: " +chC+ "</button>"
+    quiz.innerHTML += "<button Class='answerBtn'> D: " +chD+ "</button>"
+  }
+  
+  function startTimer() {
+    var timeInterval = setInterval(function () {
+      timeLeft--;
+      timerEl.textContent = timeLeft + " seconds remaining";
+      if(timeLeft === 0) {
+        clearInterval(timeInterval);
+        alert("Time's Up!");
+      }
+    }, 1000);
+  }

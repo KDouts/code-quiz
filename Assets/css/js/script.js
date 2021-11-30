@@ -22,14 +22,70 @@ var myQuestions = [{
       c: "Terra", 
       d: "Ventus"},
       correctAnswer: 1
-    },
-    {question: "Question #3: Who is the most powerful character?",
+  },{
+    question: "Question #3: Who is the most powerful character?",
     answers: {
       a: "Aqua", 
       b: "Donald", 
       c: "Terra", 
       d: "Ventus"},
       correctAnswer: 1
+  },{
+    question: "Question #4: What is the primary weapon?",
+  answers: {
+    a: "Buster Sword", 
+    b: "Ultima Weapon", 
+    c: "X-Blade", 
+    d: "Key Blade"},
+  correctAnswer: 3
+  },{
+    question: "Question #5: Where is Sora teleported after the detruction of Destiny Islands?",
+    answers: {
+      a: "Hollow Bastian", 
+      b: "Agrabrah", 
+      c: "The Land of Departure", 
+      d: "Traverse Town"},
+    correctAnswer: 3
+  },{
+    question: "Question #6: Who is not a Key Blade master?",
+    answers: {
+      a: "Aqua", 
+      b: "Eraqus", 
+      c: "Terra", 
+      d: "Mickey"},
+    correctAnswer: 2
+  },{
+    question: "Question #7: Who are Donald and Goofy looking for when they encounter Sora?",
+    answers: {
+      a: "Aqua", 
+      b: "Mickey", 
+      c: "Xehanort", 
+      d: "Ventus"},
+      correctAnswer: 1
+  },{
+    question: "Question #8: Who is the most powerful character?",
+    answers: {
+      a: "Aqua", 
+      b: "Donald", 
+      c: "Terra", 
+      d: "Ventus"},
+    correctAnswer: 1
+  },{
+    question: "Question #9: Who is the most powerful character?",
+    answers: {
+      a: "Aqua", 
+      b: "Donald", 
+      c: "Terra", 
+      d: "Ventus"},
+    correctAnswer: 1
+  },{
+    question: "Question #10: Who is the most powerful character?",
+    answers: {
+      a: "Aqua", 
+      b: "Donald", 
+      c: "Terra", 
+      d: "Ventus"},
+    correctAnswer: 1
 }];
     
 console.log(myQuestions);
@@ -57,8 +113,8 @@ function bindClick(i) {
     if(i === myQuestions[currentQuestion].correctAnswer) {
       score++;
       console.log("correct!");
-    } else if (i != myQuestions[currentQuestion].correctAnswer) {
-      timeLeft-10;
+    } else {
+      timeLeft = timeLeft-10;
     }
     currentQuestion++;
     updateUI();
@@ -84,11 +140,9 @@ function startTimer() {
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerEl.textContent = timeLeft + " seconds remaining";
-  // console.log(timerEl);
   if(timeLeft === 0) {
     clearInterval(timeInterval);
     alert("Time's Up!");
   }
-  // console.log(timeLeft);
 }, 1000);
 }
